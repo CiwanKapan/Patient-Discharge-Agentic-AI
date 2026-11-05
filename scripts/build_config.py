@@ -118,7 +118,7 @@ AMENDMENTS = {
     "applied_by": "scripts/build_config.py",
     "approval": "Taxonomy 2.1-2.4 approved by the mentor and the Dataset Lead on 2026-10-29 "
                 "(go-ahead for all changes, relayed by the project team). Taxonomy 2.5 approved by the project team on 2026-11-04. "
-                "Taxonomy 2.6 proposed 2026-11-05; approval pending (pre-registration Amendment 13).",
+                "Taxonomy 2.6 approved by the project team on 2026-11-05 (pre-registration Amendment 13).",
 }
 
 

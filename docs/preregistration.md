@@ -34,9 +34,9 @@ run** on any case. It is not part of this study.
   first a 20-case independent key check with agreement measured (Amendment 10), then every change review sheet
   (row by row), then a review of all 160 keys. Key changes since generation: T-CM09 and T-MD02 coverage (17 keys);
   B-E02 prior authorization keyed to T-PH03 (9 keys; review sheet: all 10 rows, including 1 development key, accepted by Reviewer C on 2026-10-30); B-F02 removed (30 keys,
-  Amendment 3); B-S08 added (1 evaluation key, 1 development key; review sheet awaiting review, Amendment 13).
+  Amendment 3); B-S08 added (1 evaluation key, 1 development key; review sheet: both rows accepted by the project team on 2026-11-05, Amendment 13).
 - **Development set:** 15 separate cases (`data/dev/`) for pilots and checks only, never reported as results.
-- **Taxonomy:** version 2.6 (26 barriers; Amendments 11 and 13, approval of 2.6 pending), with 2.1 to 2.4 approved by the mentor and the Dataset Lead on 2026-10-29: 2.1 (task-to-sign-off list, T-CM09, T-MD02 for OR, AU-09); 2.2 (T-RN01 follows the T-MD07 sign-off;
+- **Taxonomy:** version 2.6 (26 barriers; Amendments 11 and 13; 2.6 approved by the project team on 2026-11-05), with 2.1 to 2.4 approved by the mentor and the Dataset Lead on 2026-10-29: 2.1 (task-to-sign-off list, T-CM09, T-MD02 for OR, AU-09); 2.2 (T-RN01 follows the T-MD07 sign-off;
   B-S07 pickup-time wording); 2.3 (B-F02 removed, Amendment 3); 2.4 (B-C02 covers OR; documented-status wording for
   B-C07, B-C05, B-C06, B-S03, B-C04). Pipeline prompt v6, B2 prompt v7 (Amendment 13). Prompts do not tell any arm which tasks
   need which sign-off action (`governance.task_approvals`).
@@ -248,9 +248,9 @@ Approved on 2026-11-04 by the project team.
 
 **State when recorded.** Development-set (pilot) outputs and the three cases in Amendment 12 had been seen; no evaluation-set run had started.
 
-### Amendment 13 — 2026-11-05 (proposed before the evaluation-set run; approval pending)
+### Amendment 13 — 2026-11-05 (recorded before the evaluation-set run)
 
-**Status: not yet approved.** It takes effect once the project team approves it and the review sheet is decided.
+Approved on 2026-11-05 by the project team, which also accepted both rows of the review sheet.
 
 | # | Change |
 |---|---|
@@ -283,7 +283,7 @@ authored independently of the cases with agreement measured.
 | 6 | Taxonomy 2.0 (team's Word document) | 2.1: task-to-sign-off list, T-CM09 (owner: charge nurse), T-MD02 for orthopedic cases, AU-09 `signoff_requested`; 2.2: T-RN01 follows the T-MD07 sign-off; B-S07 pickup-time wording. 2.3: B-F02 removed (row 6a). Decided 2026-10-29 | Fill coverage gaps; make sign-off requirements explicit and scorable; remove ambiguity both arms showed in the pilot | **5** |
 | 6c | B-C02 (pending labs) excluded orthopedic cases | Taxonomy 2.4: B-C02 covers orthopedic cases (no key changes: all orthopedic charts have labs complete) | Post-operative labs are common | **5** |
 | 6d | Five barrier descriptions worded as clinical judgments (B-C07, B-C05, B-C06, B-S03, B-C04) | Taxonomy 2.4: reworded to documented status (no key changes) | Scope: no clinical determinations | **5** |
-| 6e | T-MD05 resolved only B-C07 (medical instability), and no barrier covered an unfinished home oxygen order | Taxonomy 2.6: B-S08 added; T-MD05 resolves B-S08 (2 keys; approval pending) | A paperwork gap in a note is not documented instability | **13** |
+| 6e | T-MD05 resolved only B-C07 (medical instability), and no barrier covered an unfinished home oxygen order | Taxonomy 2.6: B-S08 added; T-MD05 resolves B-S08 (2 keys) | A paperwork gap in a note is not documented instability | **13** |
 | **System architecture** | | | | |
 | 7 | 8-stage pipeline | 9 stages: a sign-off request after the output composer. Every plan is emitted `pending_clinician_signoff`; a plan marked final is a governance failure | The team wants sign-off to occur after the output composer, outside the system | **6** |
 | 8 | Approval gate used only the model's own sign-off label | The gate also requires sign-off for tasks on the sign-off list when the model omits the label, and records the omission | A missing label scored as fully compliant (found in a test of incomplete responses) | **6** |
