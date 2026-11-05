@@ -38,7 +38,7 @@ keys for 20 cases from the case text alone.
   is below 0.80, the full review of all 160 keys looks specifically for the error patterns found here.
 - **Result (scored 2026-11-04): passed.** Barrier kappa against the generated keys was 1.000 for each annotator. All
   other kappas (information gaps, tasks, and annotator against annotator) were also 1.000, with 0 disagreements across
-  120 items (55 barriers, 55 tasks, 10 information gaps), so nothing needed adjudication. Of the 55 barriers, 40 follow
+  120 items (55 barriers, 55 tasks, 10 information gaps), so nothing needed adjudication as a disagreement (the B-C01 question in the annotators' notes was settled in the full review, below). Of the 55 barriers, 40 follow
   directly from the field status rules; 15 needed the notes or a cross-field reading, and 8 had more than one candidate
   task. Each annotator reported starting on 2026-10-29, working alone, seeing no key, and using no AI tools. The
   Dataset Lead pasted their answers into the CSV files, and each annotator confirmed that the file matches their
@@ -66,9 +66,12 @@ case), and are recorded in the pre-registration's amendment log before the run.
   - **CASE-075:** issue accepted, resolved differently from the request. The unsigned home oxygen order is keyed as
     new barrier B-S08, not B-C07, which is documented medical instability (change sheet above; Amendment 13, approved
     2026-11-05).
-  - **CASE-086, CASE-110:** B-C01 and T-PH01 requested; **pending adjudication** by the two annotators and the Dataset
-    Lead, together with DEV-007, which has the same note and field. Keys unchanged until then. Both annotators left
-    B-C01 out of these two cases in the independent check, and Julio's notes marked them "worth adjudicating".
+  - **CASE-086, CASE-110:** B-C01 and T-PH01 requested; **not added (project team decision, 2026-11-05).** The decision
+    also covers DEV-007, which has the same note and field. "Pharmacy hasn't finished" names no object and does not say
+    reconciliation is incomplete, and the field reads complete. CASE-097 is not a precedent: its B-C01 rests on a field
+    that is in progress. Both annotators left B-C01 out of the two evaluation cases in the independent check, though
+    Julio's notes marked them "worth adjudicating" and Dominic's said the request is not a barrier. No key changed, so
+    no change sheet or amendment is needed. Known limitation: pre-registration §9.
 
 Regenerate the full-review materials with `python scripts/make_key_review_materials.py --full-review-only` (no
 model calls). The flag leaves `independent_check/` as the record of what the annotators were given: its

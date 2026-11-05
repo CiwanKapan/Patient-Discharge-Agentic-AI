@@ -151,6 +151,12 @@ correctness. The pipeline's sign-off stage (stage 9) requests clinician sign-off
 ever signs a plan. The scope statement (§1) limits the system to documented status and stated policy, which
 narrows but does not remove this limitation.
 
+**One ambiguous note is keyed as no barrier.** CASE-086, CASE-110 and DEV-007 read `Reconciled by pharmacist` as
+complete, but a case manager note says "Pharmacy hasn't finished" and asks the system to update the medication
+list. The team decided on 2026-11-05 not to key B-C01, because the note does not say reconciliation is incomplete
+(`data/key_reviews/README.md`). A system that reads the note the other way and flags B-C01 or recommends T-PH01 in
+these cases is scored a false positive.
+
 ## Amendments
 
 ### Amendment 1 — 2026-10-29 (recorded before the evaluation-set run)
