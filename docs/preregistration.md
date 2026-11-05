@@ -157,6 +157,14 @@ list. The two annotators and the Dataset Lead (Julio, Dominic, and Ciwan) decide
 (`data/key_reviews/README.md`). A system that reads the note the other way and flags B-C01 or recommends T-PH01 in
 these cases is scored a false positive.
 
+**Late follow-up text remains in eight cases.** Amendment 3 removed B-F02 from the keys but kept its text in the
+case files. In CASE-005, -007, -011, -015, -032, -039, -084 and -087, the follow-up field reads complete with a
+booked date, while a physician note requires follow-up sooner than that date. Judging whether a booked date is too
+late is out of scope (§1), so B-F01 is not keyed in these cases, and a system that flags it is scored a false
+positive. This affects precision, a secondary measure, and may not affect all arms equally: in the development
+pilot on DEV-001, B2 flagged B-F01 in 3 of 3 runs and the pipeline in 1 of 3. Those flags should not be read as
+ordinary model errors. Precision is reported with this in mind; the keys and scoring are unchanged.
+
 ## Amendments
 
 ### Amendment 1 — 2026-10-29 (recorded before the evaluation-set run)
