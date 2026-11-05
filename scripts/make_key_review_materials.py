@@ -1,6 +1,9 @@
 """Write the answer-key review materials (no model calls).
 
-    python scripts/make_key_review_materials.py
+    python scripts/make_key_review_materials.py [--full-review-only]
+
+Use --full-review-only once annotation has started: independent_check/ is the record of what the annotators
+were given, and a later taxonomy or manifest change must not rewrite it.
 
 data/key_reviews/independent_check/   the 20-case independent key check (pre-registration Amendment 10)
     cases.txt              20 evaluation cases, seeded and stratified: 4 per condition, 6/10/4 easy/medium/hard,
@@ -140,24 +143,26 @@ def main() -> None:
     case_dir, key_dir, _ = CASE_SETS["eval"]
 
     # ---------------- independent check (blinded)
-    ic = OUT / "independent_check"
-    (ic / "packet").mkdir(parents=True, exist_ok=True)
-    subset = choose_subset(rows)
-    (ic / "cases.txt").write_text(f"# 20-case independent key check (scripts/make_key_review_materials.py, seed {SEED})\n"
-                                  + "\n".join(subset) + "\n")
-    for cid in subset:
-        case = PatientCase.model_validate_json((case_dir / f"{cid}.json").read_text())
-        (ic / "packet" / f"{cid}.md").write_text(render_case(case))
-    (ic / "reference.md").write_text(
-        "# Reference for annotators\n\nThis is the taxonomy and the chart-reading rules the systems receive. "
-        "Use only IDs listed here, and only those whose conditions include the case's condition.\n\n"
-        f"## Barriers\n\n{barrier_reference(taxonomy)}\n\n## Tasks\n\n{task_reference(taxonomy)}\n\n{CHART_READING_RULES}\n")
-    with open(ic / "annotations_template.csv", "w", newline="") as fh:
-        w = csv.writer(fh)
-        w.writerow(["annotator", "case_id", "item_type", "item_id", "evidence", "notes"])
+    if "--full-review-only" not in sys.argv[1:]:
+        ic = OUT / "independent_check"
+        (ic / "packet").mkdir(parents=True, exist_ok=True)
+        subset = choose_subset(rows)
+        (ic / "cases.txt").write_text(f"# 20-case independent key check (scripts/make_key_review_materials.py, seed {SEED})\n"
+                                      + "\n".join(subset) + "\n")
         for cid in subset:
-            w.writerow(["", cid, "", "", "", ""])
-    (ic / "INSTRUCTIONS.md").write_text(INSTRUCTIONS)
+            case = PatientCase.model_validate_json((case_dir / f"{cid}.json").read_text())
+            (ic / "packet" / f"{cid}.md").write_text(render_case(case))
+        (ic / "reference.md").write_text(
+            "# Reference for annotators\n\nThis is the taxonomy and the chart-reading rules the systems receive. "
+            "Use only IDs listed here, and only those whose conditions include the case's condition.\n\n"
+            f"## Barriers\n\n{barrier_reference(taxonomy)}\n\n## Tasks\n\n{task_reference(taxonomy)}\n\n{CHART_READING_RULES}\n")
+        with open(ic / "annotations_template.csv", "w", newline="") as fh:
+            w = csv.writer(fh)
+            w.writerow(["annotator", "case_id", "item_type", "item_id", "evidence", "notes"])
+            for cid in subset:
+                w.writerow(["", cid, "", "", "", ""])
+        (ic / "INSTRUCTIONS.md").write_text(INSTRUCTIONS)
+        print(f"independent check: {len(subset)} cases -> {ic}")
 
     # ---------------- full review (keys visible)
     fr = OUT / "full_review"
@@ -177,7 +182,6 @@ def main() -> None:
         w = csv.DictWriter(fh, fieldnames=list(sheet[0]))
         w.writeheader()
         w.writerows(sheet)
-    print(f"independent check: {len(subset)} cases -> {ic}")
     print(f"full review: {len(sheet)} cases -> {fr}")
 
 

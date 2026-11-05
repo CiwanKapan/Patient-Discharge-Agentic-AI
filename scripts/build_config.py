@@ -34,7 +34,7 @@ TASK_APPROVALS = {"T-MD01": "GR-A06", "T-MD04": "GR-A07", "T-MD05": "GR-A05",
                   "T-MD07": "GR-A04", "T-PH01": "GR-A02", "T-PH02": "GR-A03"}
 
 
-# What 2.1-2.4 change in the 2.0 .docx (see AMENDMENTS for approval status); the
+# What 2.1-2.6 change in the 2.0 .docx (see AMENDMENTS for approval status); the
 # patches are TASK_APPROVALS (+ rationale), T_CM09 / patch_tasks, and AU_SIGNOFF.
 # T-MD02 also covers pending imaging (B-C03) in OR cases (patch_tasks).
 T_CM09 = {
@@ -64,6 +64,12 @@ B_S07_ADDITION = (" If transport is booked but its pickup time, or the planned d
                   "the timing cannot be checked: this is an information gap for B-S07 (confirm the pickup time), not "
                   "a barrier.")
 RETIRED_BARRIERS = ["B-F02"]
+B_S08 = {
+    "id": "B-S08", "name": "Home oxygen order incomplete", "category": "social_logistical_and_workflow",
+    "description": "A home oxygen order is documented as not yet placed, signed, or renewed (oxygen field or a note).",
+    "conditions": ["HF", "CO", "PN"], "urgency": "high",
+    "evidence_fields": ["oxygen_requirement"], "cross_field": False,
+}
 T_CM01_DESCRIPTION = "Case manager books a post-discharge outpatient appointment."
 B_C02_ADD_CONDITIONS = ["OR"]
 DOCUMENTED_STATUS_DESCRIPTIONS = {
@@ -76,7 +82,7 @@ DOCUMENTED_STATUS_DESCRIPTIONS = {
     "B-C04": "A consult was requested and is documented as not yet completed.",
 }
 AMENDMENTS = {
-    "version": "2.5",
+    "version": "2.6",
     "base": "2.0 (source .docx)",
     "changes": [
         "governance.task_approvals: tasks whose completion needs an approval-required action, with "
@@ -93,6 +99,8 @@ AMENDMENTS = {
         "2.4: B-C02 (pending labs) conditions extended to OR",
         "2.4: B-C07, B-C05, B-C06, B-S03, B-C04 descriptions reworded to documented status instead of a clinical "
         "judgment",
+        "2.6: B-S08 (home oxygen order incomplete) added; T-MD05 resolves B-S08 instead of B-C07, because B-C07 is "
+        "documented medical instability and no barrier covered an unfinished oxygen order (pre-registration Amendment 13)",
     ],
     "review_flags": [
         {"item": "B-C02 conditions",
@@ -109,7 +117,8 @@ AMENDMENTS = {
     "review_flags_status": "All flags resolved 2026-10-29",
     "applied_by": "scripts/build_config.py",
     "approval": "Taxonomy 2.1-2.4 approved by the mentor and the Dataset Lead on 2026-10-29 "
-                "(go-ahead for all changes, relayed by the project team). Taxonomy 2.5 approved by the project team on 2026-11-04.",
+                "(go-ahead for all changes, relayed by the project team). Taxonomy 2.5 approved by the project team on 2026-11-04. "
+                "Taxonomy 2.6 proposed 2026-11-05; approval pending (pre-registration Amendment 13).",
 }
 
 
@@ -121,6 +130,7 @@ def patch_barriers(barriers):
     for b in barriers:
         if b["id"] in DOCUMENTED_STATUS_DESCRIPTIONS:
             b["description"] = DOCUMENTED_STATUS_DESCRIPTIONS[b["id"]]
+    barriers.append(dict(B_S08))
 
 
 def patch_tasks(tasks):
@@ -132,6 +142,7 @@ def patch_tasks(tasks):
     cm01["resolves"] = [r for r in cm01["resolves"] if r not in RETIRED_BARRIERS]
     last_cm = max(i for i, t in enumerate(tasks) if t["id"].startswith("T-CM"))
     tasks.insert(last_cm + 1, dict(T_CM09))
+    next(t for t in tasks if t["id"] == "T-MD05")["resolves"] = ["B-S08"]
 
 
 def roles(s):
@@ -200,7 +211,7 @@ def build_taxonomy(path):
     return {
         "meta": {
             "name": "Discharge Coordinator AI — Barrier, Task, and Governance Taxonomy",
-            "version": "2.5",  # 2.0 from the .docx plus the amendments below
+            "version": "2.6",  # 2.0 from the .docx plus the amendments below
             "source": "Discharge_Coordinator_AI_taxonomy_v2_cleaned.docx",
             "amendments": AMENDMENTS,
             "rule": "Answer keys and normalized system outputs use these IDs only, never free text. "

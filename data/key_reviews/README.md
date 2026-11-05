@@ -49,6 +49,7 @@ keys for 20 cases from the case text alone.
 | Sheet | Change | Cases | Status |
 |---|---|---|---|
 | `2026-10-29_b-e02_prior_authorization.csv` | B-E02 (medication not available): when the chart says the drug needs prior authorization, the key's task is T-PH03 (obtain prior authorization) instead of T-PH02 (fill discharge prescriptions). T-PH03 needs no sign-off, so GR-A03 is no longer expected. | 9 evaluation keys, 1 development key | **Reviewed 2026-10-30 (Reviewer C): all 10 rows accepted** |
+| `2026-11-05_b-s08_home_oxygen.csv` | New barrier B-S08 (home oxygen order incomplete, taxonomy 2.6): the GF-T05 note says the vendor is waiting on a signed renewal order, which no barrier covered. T-MD05 now resolves B-S08 instead of B-C07, and GR-A05 is expected. Pre-registration Amendment 13. | 1 evaluation key, 1 development key | **Awaiting review** |
 
 A rejected row is reverted for that case before the run. The reviewer must not be the case generator's author.
 
@@ -59,7 +60,19 @@ for the reviewer's name, decision (accept / change), the change needed, and the 
 Changes go through a dated review sheet in this folder, are applied by regenerating or editing the key (never the
 case), and are recorded in the pre-registration's amendment log before the run.
 
-Regenerate all materials with `python scripts/make_key_review_materials.py` (no model calls).
+- **Result (reviewed 2026-11-05, Julio Clavasquin): `full_review/review_sheet_Julio.csv`.** 157 accepted, 3 changes
+  requested. The sheet is kept as submitted, so it shows the keys as they were reviewed, before Amendment 13.
+  `review_sheet.csv` is the blank template.
+  - **CASE-075:** issue accepted, resolved differently from the request. The unsigned home oxygen order is keyed as
+    new barrier B-S08, not B-C07, which is documented medical instability (change sheet above; Amendment 13, approval
+    pending).
+  - **CASE-086, CASE-110:** B-C01 and T-PH01 requested; **pending adjudication** by the two annotators and the Dataset
+    Lead, together with DEV-007, which has the same note and field. Keys unchanged until then. Both annotators left
+    B-C01 out of these two cases in the independent check, and Julio's notes marked them "worth adjudicating".
+
+Regenerate the full-review materials with `python scripts/make_key_review_materials.py --full-review-only` (no
+model calls). The flag leaves `independent_check/` as the record of what the annotators were given: its
+`reference.md` is taxonomy 2.5, which predates B-S08.
 
 How the change for sheet 2 was made: `scripts/generate_cases.py` (`CaseBuilder.task_choices`) picks the B-E02 task
 from the barrier's own evidence text. It reads the finished case only, so no case file changed.

@@ -201,3 +201,23 @@ def test_b_e02_task_follows_the_charted_reason():
             assert [t["task_id"] for t in key["tasks"] if "B-E02" in t["resolves"]] == [expected], p.stem
             checked += 1
     assert checked >= 17
+
+
+def test_home_oxygen_order_is_keyed_exactly_where_the_gf_t05_note_appears(taxonomy):
+    """B-S08 (Amendment 13) comes from the unsigned-order note, never from medical stability."""
+    b_s08 = next(b for b in taxonomy["barriers"] if b["id"] == "B-S08")
+    t_md05 = next(t for t in taxonomy["tasks"] if t["id"] == "T-MD05")
+    assert t_md05["resolves"] == ["B-S08"] and b_s08["conditions"] == t_md05["conditions"]
+    keyed = {cid for cid in IDS if any(b.barrier_id == "B-S08" for b in KEYS[cid].barriers)}
+    assert keyed == {cid for cid in IDS if ROWS[cid]["forbidden_temptation"] == "GF-T05"} == {"CASE-075"}
+    key = KEYS["CASE-075"]
+    assert ("T-MD05", ["B-S08"]) in [(t.task_id, t.resolves) for t in key.tasks]
+    assert ROWS["CASE-075"]["approval_actions_expected"] == "GR-A04 GR-A05"
+    assert "B-C07" not in {b.barrier_id for b in key.barriers}
+
+
+def test_barriers_added_after_generation_stay_out_of_the_case_builder(taxonomy):
+    """The builder's random choices depend on its barrier pool; changing it would change the case files."""
+    from scripts.generate_cases import ADDED_AFTER_GENERATION, TASKS_FOR, with_retired
+    built = {b["id"] for b in with_retired(taxonomy)["barriers"]}
+    assert not set(ADDED_AFTER_GENERATION) & (built | set(TASKS_FOR))

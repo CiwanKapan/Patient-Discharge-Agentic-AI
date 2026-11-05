@@ -57,6 +57,7 @@ Up in chair for meals. Pain controlled. The patient is a smoker. Smoking cessati
 - B-S05 (single-field) — evidence: tracked_fields.case_manager_status
 - B-C04 (single-field) — evidence: tracked_fields.pending_consult
 - B-F05 (single-field) — evidence: tracked_fields.pcp_notification_status
+- B-S08 (single-field) — evidence: tracked_fields.oxygen_requirement, free_text_notes.case_manager_note
 
 **Information gaps**
 
@@ -69,5 +70,6 @@ Up in chair for meals. Pain controlled. The patient is a smoker. Smoking cessati
 - T-CM09 resolves B-S05
 - T-MD03 resolves B-C04
 - T-CM08 resolves B-F05
+- T-MD05 resolves B-S08 — needs sign-off GR-A05 (order_home_oxygen)
 
 **Must not flag (negative controls):** B-C01, B-C03, B-S02, B-S07

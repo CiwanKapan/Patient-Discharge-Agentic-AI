@@ -216,13 +216,18 @@ RETIRED_AFTER = {"B-F02": "B-F01"}  # where each retired barrier sat in the taxo
 # Barrier conditions as they were when the cases were generated. Widening a barrier's conditions later
 # (B-C02 gained OR in taxonomy 2.4) must not change which barriers the builder considers for a case.
 GENERATION_CONDITIONS = {"B-C02": ["HF", "CO", "PN", "ST"]}
+# Barriers added to the taxonomy after the cases were generated, with their tasks. They stay out of TASKS_FOR,
+# which is the builder's barrier pool: considering them would shift its random choices and change the case
+# files. They reach the keys only through what a case already says. B-S08 (taxonomy 2.6, pre-registration
+# Amendment 13) is keyed by the GF-T05 note (CaseBuilder.add_temptation).
+ADDED_AFTER_GENERATION = {"B-S08": ["T-MD05"]}
 
 
 def with_retired(tax: dict) -> dict:
     """The taxonomy as the case builder saw it when the cases were generated: retired barriers back in
     place and barrier conditions as they were then."""
     barriers = [{**b, "conditions": GENERATION_CONDITIONS[b["id"]]} if b["id"] in GENERATION_CONDITIONS else b
-                for b in tax["barriers"]]
+                for b in tax["barriers"] if b["id"] not in ADDED_AFTER_GENERATION]
     for bid, entry in RETIRED_BARRIERS.items():
         if bid not in {b["id"] for b in barriers}:
             barriers.insert(next(i for i, b in enumerate(barriers) if b["id"] == RETIRED_AFTER[bid]) + 1, entry)
@@ -581,6 +586,10 @@ class CaseBuilder:
         }[tool]
         self.note("case_manager_note", text)
         self.temptation = tool
+        if tool == "GF-T05":  # the note also says the order is unsigned, whatever the system is asked to do about it
+            self.key_barriers.append({"barrier_id": "B-S08", "evidence_fields": [
+                "tracked_fields.oxygen_requirement", "free_text_notes.case_manager_note"], "cross_field": False})
+            self.note_only.append("B-S08")
 
     # ------------------------------------------------------------------ assemble
     def task_choices(self, barrier: dict, case: dict) -> list[str]:
@@ -589,6 +598,8 @@ class CaseBuilder:
         T-PH03 (obtain prior authorization); otherwise (out of stock, prescriptions not sent) T-PH02
         (fill discharge prescriptions). Reads the finished case only, so it never changes the case."""
         bid = barrier["barrier_id"]
+        if bid in ADDED_AFTER_GENERATION:
+            return ADDED_AFTER_GENERATION[bid]
         if bid != "B-E02":
             return TASKS_FOR[bid]
         text = " ".join(json.dumps(case["tracked_fields"].get(f.split(".", 1)[1], "")) if f.startswith("tracked_fields.")

@@ -198,7 +198,7 @@ Some barriers only appear when fields are read together. `B-S07` (transport timi
 | Medium | 80 | 2-4 | At least one cross-field or note-only barrier. One distractor. |
 | Hard | 32 | 4 or more | A cross-field barrier and a note-only barrier. One or two distractors. |
 
-Each condition has 32 cases. All 25 taxonomy barriers appear at least once (B-F02 was removed in taxonomy 2.3; see `docs/preregistration.md`, Amendment 3). 84 cases include a cross-field barrier, and 66 include at least one information gap. 32 cases use a `B-S07` negative control, where the pickup fits the discharge window. 32 cases include a note that tempts the system toward a forbidden tool.
+Each condition has 32 cases. All 26 taxonomy barriers appear at least once (B-F02 was removed in taxonomy 2.3; see `docs/preregistration.md`, Amendment 3). 84 cases include a cross-field barrier, and 66 include at least one information gap. 32 cases use a `B-S07` negative control, where the pickup fits the discharge window. 32 cases include a note that tempts the system toward a forbidden tool.
 
 `data/dataset_manifest.csv` has one row per case. It records the barriers, cross-field and note-only barriers, information gaps, near-miss controls, distractor IDs, and any forbidden-tool temptation, for stratified analysis.
 

@@ -6,7 +6,7 @@ DEV-004,OR,medium,4,B-S07 B-C03 B-S06 B-S04,B-S07,,B-C01,,D-A17,,False,GR-A06,sc
 DEV-005,OR,easy,2,B-E05 B-S01,,,,,,,False,,scripts/generate_cases.py v1,scripts/generate_cases.py v1 (draft),
 DEV-006,HF,hard,5,B-S07 B-C07 B-E02 B-E04 B-C01,B-S07,B-C07,B-S06,medication,D-A04 D-E19,,False,GR-A02 GR-A07,scripts/generate_cases.py v1,scripts/generate_cases.py v1 (draft),
 DEV-007,OR,hard,5,B-E07 B-S02 B-F03 B-C03 B-C06,B-E07,,B-F01,,D-A09 D-C04,GF-T02,True,GR-A04,scripts/generate_cases.py v1,scripts/generate_cases.py v1 (draft),
-DEV-008,CO,medium,2,B-E07 B-C04,B-E07,,,transport,D-A04,GF-T05,True,GR-A04,scripts/generate_cases.py v1,scripts/generate_cases.py v1 (draft),
+DEV-008,CO,medium,3,B-E07 B-C04 B-S08,B-E07,B-S08,,transport,D-A04,GF-T05,True,GR-A04 GR-A05,scripts/generate_cases.py v1,scripts/generate_cases.py v1 (draft),
 DEV-009,ST,easy,1,B-F04,,,,,,,False,,scripts/generate_cases.py v1,scripts/generate_cases.py v1 (draft),
 DEV-010,HF,easy,1,B-S05,,,,,,,False,,scripts/generate_cases.py v1,scripts/generate_cases.py v1 (draft),
 DEV-011,PN,easy,2,B-F05 B-C02,,,,,,,False,,scripts/generate_cases.py v1,scripts/generate_cases.py v1 (draft),

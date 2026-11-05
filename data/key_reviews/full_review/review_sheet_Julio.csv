@@ -1,0 +1,161 @@
+﻿case_id,condition,difficulty,barriers,information_gaps,tasks,expected_signoffs,reviewer,decision (accept / change),change needed,date
+CASE-001,PN,easy,B-S06 B-C03,,T-MD01 T-MD02,GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-002,ST,medium,B-S07 B-E01,B-C04,T-CM04 T-RN01,,Julio Clavasquin,accept,,11/5/2026
+CASE-003,HF,hard,B-S07 B-C07 B-C01 B-E06,B-F05 B-E02,T-CM04 T-MD04 T-PH01 T-RN08,GR-A02 GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-004,OR,medium,B-E07 B-S05,,T-MD07 T-CM09,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-005,HF,medium,B-F03,B-S07,T-CM02,,Julio Clavasquin,accept,,11/5/2026
+CASE-006,ST,hard,B-E07 B-E04 B-F01 B-E03 B-F04 B-S01,B-S03,T-MD07 T-RN03 T-CM01 T-RN02 T-CM03 T-CM07,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-007,ST,medium,B-E05 B-C02,B-C01,T-RN07 T-MD02,,Julio Clavasquin,accept,,11/5/2026
+CASE-008,PN,easy,B-S02,,T-CM04,,Julio Clavasquin,accept,,11/5/2026
+CASE-009,OR,medium,B-E07 B-F05,B-F01,T-MD07 T-CM08,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-010,OR,medium,B-E02 B-S04 B-C05,,T-PH03 T-CM06 T-RN06,,Julio Clavasquin,accept,,11/5/2026
+CASE-011,CO,medium,B-C04,B-C01,T-MD03,,Julio Clavasquin,accept,,11/5/2026
+CASE-012,PN,easy,B-F05 B-F03,,T-CM08 T-CM02,,Julio Clavasquin,accept,,11/5/2026
+CASE-013,PN,medium,B-E07 B-S06 B-C07,B-C02,T-MD07 T-MD01 T-MD04,GR-A04 GR-A06 GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-014,HF,easy,B-E06,,T-RN08,,Julio Clavasquin,accept,,11/5/2026
+CASE-015,OR,medium,B-S05 B-S03 B-C06,B-C04,T-CM09 T-CM05 T-RN05,,Julio Clavasquin,accept,,11/5/2026
+CASE-016,HF,medium,B-E02 B-C02,,T-PH02 T-MD02,GR-A03,Julio Clavasquin,accept,,11/5/2026
+CASE-017,ST,medium,B-S07 B-F04 B-C03 B-C04,B-E03,T-CM04 T-CM03 T-MD02 T-MD03,,Julio Clavasquin,accept,,11/5/2026
+CASE-018,OR,easy,B-F01,,T-CM01,,Julio Clavasquin,accept,,11/5/2026
+CASE-019,HF,hard,B-S07 B-E02 B-C05 B-E03 B-S05,B-F03,T-CM04 T-PH03 T-RN06 T-RN02 T-CM09,,Julio Clavasquin,accept,,11/5/2026
+CASE-020,OR,medium,B-E07 B-S02 B-S04,B-S03,T-MD07 T-CM04 T-CM06,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-021,HF,medium,B-C07 B-C01 B-E01,,T-MD04 T-PH01 T-RN01,GR-A02 GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-022,PN,medium,B-S02 B-S01 B-S06 B-E01,,T-CM04 T-CM07 T-MD01 T-RN01,GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-023,ST,easy,B-E04 B-E05,,T-RN03 T-RN07,,Julio Clavasquin,accept,,11/5/2026
+CASE-024,CO,medium,B-C07 B-F01 B-S01 B-C05,B-E03,T-MD04 T-CM01 T-CM07 T-RN06,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-025,ST,hard,B-E07 B-S03 B-C02 B-F03,B-S02,T-MD07 T-CM05 T-MD02 T-CM02,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-026,CO,medium,B-S07 B-E03,,T-CM04 T-RN02,,Julio Clavasquin,accept,,11/5/2026
+CASE-027,HF,medium,B-S07 B-E04,,T-CM04 T-RN03,,Julio Clavasquin,accept,,11/5/2026
+CASE-028,CO,medium,B-F03 B-C01 B-E06 B-C03,,T-CM02 T-PH01 T-RN08 T-MD02,GR-A02,Julio Clavasquin,accept,,11/5/2026
+CASE-029,HF,medium,B-E07 B-C04 B-F05,B-S06,T-MD07 T-MD03 T-CM08,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-030,HF,medium,B-S02 B-E03 B-F01,,T-CM04 T-RN02 T-CM01,,Julio Clavasquin,accept,,11/5/2026
+CASE-031,CO,easy,B-C04,,T-MD03,,Julio Clavasquin,accept,,11/5/2026
+CASE-032,PN,medium,B-C03 B-S06,,T-MD02 T-MD01,GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-033,CO,easy,B-F05,,T-CM08,,Julio Clavasquin,accept,,11/5/2026
+CASE-034,ST,medium,B-S07 B-F04 B-E05 B-S01,,T-CM04 T-CM03 T-RN07 T-CM07,,Julio Clavasquin,accept,,11/5/2026
+CASE-035,OR,easy,B-C06,,T-RN05,,Julio Clavasquin,accept,,11/5/2026
+CASE-036,ST,easy,B-S03,,T-CM05,,Julio Clavasquin,accept,,11/5/2026
+CASE-037,OR,easy,B-C06 B-S04,,T-RN05 T-CM06,,Julio Clavasquin,accept,,11/5/2026
+CASE-038,ST,easy,B-S05,,T-CM09,,Julio Clavasquin,accept,,11/5/2026
+CASE-039,CO,medium,B-C02 B-E02,,T-MD02 T-PH02,GR-A03,Julio Clavasquin,accept,,11/5/2026
+CASE-040,CO,medium,B-S07 B-E06,,T-CM04 T-RN08,,Julio Clavasquin,accept,,11/5/2026
+CASE-041,PN,medium,B-E02 B-C01,,T-PH03 T-PH01,GR-A02,Julio Clavasquin,accept,,11/5/2026
+CASE-042,ST,hard,B-E07 B-F04 B-S03 B-E05 B-C05 B-S01,B-C04,T-MD07 T-CM03 T-CM05 T-RN07 T-RN06 T-CM07,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-043,CO,easy,B-E01,,T-RN01,,Julio Clavasquin,accept,,11/5/2026
+CASE-044,PN,medium,B-E07 B-S05,B-F03,T-MD07 T-CM09,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-045,HF,hard,B-S07 B-C07 B-E06 B-F03 B-E04 B-F01,B-E02,T-CM04 T-MD04 T-RN08 T-CM02 T-RN03 T-CM01,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-046,OR,hard,B-E07 B-S04 B-S06 B-C01 B-C06,B-C04,T-MD07 T-CM06 T-MD01 T-PH01 T-RN05,GR-A02 GR-A04 GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-047,OR,medium,B-E07 B-C06 B-S03 B-F04,B-S04,T-MD07 T-RN05 T-CM05 T-CM03,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-048,HF,hard,B-S07 B-E02 B-C04 B-C05 B-E03 B-E01,B-C01,T-CM04 T-PH03 T-MD03 T-RN06 T-RN02 T-RN01,,Julio Clavasquin,accept,,11/5/2026
+CASE-049,PN,medium,B-S02 B-C03,,T-CM04 T-MD02,,Julio Clavasquin,accept,,11/5/2026
+CASE-050,OR,hard,B-S07 B-C07 B-S04 B-E06 B-E05,B-S03 B-E02,T-CM04 T-MD04 T-CM06 T-RN08 T-RN07,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-051,ST,easy,B-F05,,T-CM08,,Julio Clavasquin,accept,,11/5/2026
+CASE-052,CO,medium,B-S02 B-C02 B-S05,,T-CM04 T-MD02 T-CM09,,Julio Clavasquin,accept,,11/5/2026
+CASE-053,PN,medium,B-E07 B-F03 B-S06 B-F05,B-S02,T-MD07 T-CM02 T-MD01 T-CM08,GR-A04 GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-054,HF,medium,B-S07 B-E04 B-F01 B-C01,B-C04,T-CM04 T-RN03 T-CM01 T-PH01,GR-A02,Julio Clavasquin,accept,,11/5/2026
+CASE-055,CO,easy,B-S01,,T-CM07,,Julio Clavasquin,accept,,11/5/2026
+CASE-056,ST,medium,B-S07 B-F04,,T-CM04 T-CM03,,Julio Clavasquin,accept,,11/5/2026
+CASE-057,CO,hard,B-E07 B-C05 B-E03 B-C04 B-C02,B-F01,T-MD07 T-RN06 T-RN02 T-MD03 T-MD02,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-058,PN,easy,B-C03,,T-MD02,,Julio Clavasquin,accept,,11/5/2026
+CASE-059,CO,medium,B-E07 B-S01 B-S06,B-F03,T-MD07 T-CM07 T-MD01,GR-A04 GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-060,ST,medium,B-C07 B-S03 B-E05 B-E04,,T-MD04 T-CM05 T-RN07 T-RN03,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-061,PN,hard,B-S07 B-F03 B-F01 B-E01 B-C04 B-E03,B-C02,T-CM04 T-CM02 T-CM01 T-RN01 T-MD03 T-RN02,,Julio Clavasquin,accept,,11/5/2026
+CASE-062,PN,medium,B-S07 B-C05 B-E06 B-C03,,T-CM04 T-RN06 T-RN08 T-MD02,,Julio Clavasquin,accept,,11/5/2026
+CASE-063,PN,easy,B-C01 B-E02,,T-PH01 T-PH03,GR-A02,Julio Clavasquin,accept,,11/5/2026
+CASE-064,ST,easy,B-S03 B-C02,,T-CM05 T-MD02,,Julio Clavasquin,accept,,11/5/2026
+CASE-065,OR,easy,B-C06 B-F05,,T-RN05 T-CM08,,Julio Clavasquin,accept,,11/5/2026
+CASE-066,OR,easy,B-S04,,T-CM06,,Julio Clavasquin,accept,,11/5/2026
+CASE-067,PN,hard,B-E07 B-S02 B-C01 B-C02 B-S05,B-C04 B-E03,T-MD07 T-CM04 T-PH01 T-MD02 T-CM09,GR-A02 GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-068,OR,medium,B-S07 B-E01,B-F03,T-CM04 T-RN01,,Julio Clavasquin,accept,,11/5/2026
+CASE-069,CO,easy,B-C05 B-E03,,T-RN06 T-RN02,,Julio Clavasquin,accept,,11/5/2026
+CASE-070,ST,easy,B-F04 B-E05,,T-CM03 T-RN07,,Julio Clavasquin,accept,,11/5/2026
+CASE-071,OR,easy,B-C06 B-S04,,T-RN05 T-CM06,,Julio Clavasquin,accept,,11/5/2026
+CASE-072,CO,easy,B-S02,,T-CM04,,Julio Clavasquin,accept,,11/5/2026
+CASE-073,OR,medium,B-S07 B-C07 B-F01,B-C04,T-CM04 T-MD04 T-CM01,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-074,OR,hard,B-E07 B-C03 B-S06 B-S04 B-F04,B-S02,T-MD07 T-MD02 T-MD01 T-CM06 T-CM03,GR-A04 GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-075,CO,hard,B-E07 B-S05 B-C04 B-F05,B-C01 B-C03,T-MD07 T-CM09 T-MD03 T-CM08,GR-A04,Julio Clavasquin,change,"Missing barrier B-C07 plus task T-MD05 (sign-off GR-A05). oxygen_requirement reads complete ('supply confirmed'), but case_manager_note says the oxygen vendor is waiting on a signed renewal order for the home oxygen, so the home-oxygen order is not done. A note can contradict a field marked complete. Add B-C07 (evidence: tracked_fields.oxygen_requirement, free_text_notes.case_manager_note), T-MD05 resolves B-C07, and add GR-A05 to expected_signoffs.",11/5/2026
+CASE-076,CO,medium,B-E07 B-E02 B-F03,,T-MD07 T-PH03 T-CM02,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-077,CO,easy,B-E06,,T-RN08,,Julio Clavasquin,accept,,11/5/2026
+CASE-078,CO,medium,B-C07 B-S01 B-E01,B-S07,T-MD04 T-CM07 T-RN01,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-079,PN,easy,B-E06 B-F03,,T-RN08 T-CM02,,Julio Clavasquin,accept,,11/5/2026
+CASE-080,ST,medium,B-S07 B-E05,B-E03,T-CM04 T-RN07,,Julio Clavasquin,accept,,11/5/2026
+CASE-081,PN,medium,B-E07 B-E02 B-E03,B-C02,T-MD07 T-PH03 T-RN02,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-082,OR,easy,B-F04,,T-CM03,,Julio Clavasquin,accept,,11/5/2026
+CASE-083,CO,medium,B-S07 B-C01 B-E01 B-C05,,T-CM04 T-PH01 T-RN01 T-RN06,GR-A02,Julio Clavasquin,accept,,11/5/2026
+CASE-084,HF,medium,B-E04,,T-RN03,,Julio Clavasquin,accept,,11/5/2026
+CASE-085,PN,hard,B-S07 B-E02 B-S06 B-F01,B-C01 B-C02,T-CM04 T-PH02 T-MD01 T-CM01,GR-A03 GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-086,ST,medium,B-E07 B-S03 B-S01 B-E04,,T-MD07 T-CM05 T-CM07 T-RN03,GR-A04,Julio Clavasquin,change,"Missing barrier B-C01, task T-PH01 (sign-off GR-A02). medication_reconciliation_status is complete ('Reconciled by pharmacist'), but case_manager_note says 'Pharmacy hasn't finished' and asks to update the active medication list for the atorvastatin change, so reconciliation is not actually done. Notes can contradict a complete field. Add B-C01 (evidence: tracked_fields.medication_reconciliation_status, free_text_notes.case_manager_note), T-PH01 resolves B-C01, add GR-A02 to expected_signoffs. Same note wording as CASE-097, where the field is in_progress and the key has B-C01.",11/5/2026
+CASE-087,CO,medium,B-S05 B-S02 B-C03,B-E02,T-CM09 T-CM04 T-MD02,,Julio Clavasquin,accept,,11/5/2026
+CASE-088,CO,easy,B-C04 B-F05,,T-MD03 T-CM08,,Julio Clavasquin,accept,,11/5/2026
+CASE-089,CO,easy,B-S05,,T-CM09,,Julio Clavasquin,accept,,11/5/2026
+CASE-090,PN,medium,B-S07 B-C02 B-E06,,T-CM04 T-MD02 T-RN08,,Julio Clavasquin,accept,,11/5/2026
+CASE-091,HF,medium,B-E07 B-F03 B-E04,B-C04,T-MD07 T-CM02 T-RN03,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-092,OR,easy,B-C06,,T-RN05,,Julio Clavasquin,accept,,11/5/2026
+CASE-093,ST,medium,B-E07 B-C03,,T-MD07 T-MD02,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-094,ST,hard,B-S07 B-C07 B-S06 B-S03,B-F03 B-F01,T-CM04 T-MD04 T-MD01 T-CM05,GR-A06 GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-095,ST,easy,B-E05,,T-RN07,,Julio Clavasquin,accept,,11/5/2026
+CASE-096,HF,hard,B-S07 B-E02 B-E01 B-E03 B-F05,B-F01,T-CM04 T-PH02 T-RN01 T-RN02 T-CM08,GR-A03,Julio Clavasquin,accept,,11/5/2026
+CASE-097,PN,medium,B-E07 B-C02 B-C01,,T-MD07 T-MD02 T-PH01,GR-A02 GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-098,OR,medium,B-S07 B-C06 B-S04,B-C04,T-CM04 T-RN05 T-CM06,,Julio Clavasquin,accept,,11/5/2026
+CASE-099,HF,easy,B-F01 B-E04,,T-CM01 T-RN03,,Julio Clavasquin,accept,,11/5/2026
+CASE-100,OR,hard,B-E07 B-S03 B-C04 B-F04 B-C06,B-F03,T-MD07 T-CM05 T-MD03 T-CM03 T-RN05,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-101,HF,hard,B-E07 B-S01 B-C05 B-S06,B-S02 B-F05,T-MD07 T-CM07 T-RN06 T-MD01,GR-A04 GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-102,HF,easy,B-C07,,T-MD04,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-103,OR,easy,B-E05,,T-RN07,,Julio Clavasquin,accept,,11/5/2026
+CASE-104,ST,medium,B-S07 B-E06,B-E03,T-CM04 T-RN08,,Julio Clavasquin,accept,,11/5/2026
+CASE-105,ST,medium,B-S02 B-C03,B-F05,T-CM04 T-MD02,,Julio Clavasquin,accept,,11/5/2026
+CASE-106,PN,easy,B-F05,,T-CM08,,Julio Clavasquin,accept,,11/5/2026
+CASE-107,CO,hard,B-S07 B-E02 B-C01 B-F01 B-C02,B-C03,T-CM04 T-PH02 T-PH01 T-CM01 T-MD02,GR-A02 GR-A03,Julio Clavasquin,accept,,11/5/2026
+CASE-108,PN,hard,B-E07 B-S05 B-F03 B-E03 B-C05 B-F05,B-S07,T-MD07 T-CM09 T-CM02 T-RN02 T-RN06 T-CM08,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-109,PN,medium,B-S07 B-E01 B-S01,,T-CM04 T-RN01 T-CM07,,Julio Clavasquin,accept,,11/5/2026
+CASE-110,PN,medium,B-E07 B-S02 B-C04,B-C03,T-MD07 T-CM04 T-MD03,GR-A04,Julio Clavasquin,change,"Missing barrier B-C01, task T-PH01 (sign-off GR-A02). medication_reconciliation_status is complete ('Reconciled by pharmacist'), but case_manager_note says 'Pharmacy hasn't finished' and asks to update the active medication list for the insulin glargine change, so reconciliation is not actually done. Add B-C01 (evidence: tracked_fields.medication_reconciliation_status, free_text_notes.case_manager_note), T-PH01 resolves B-C01, add GR-A02 to expected_signoffs. Same note wording as CASE-097, where the field is in_progress and the key has B-C01.",11/5/2026
+CASE-111,HF,easy,B-C04 B-C01,,T-MD03 T-PH01,GR-A02,Julio Clavasquin,accept,,11/5/2026
+CASE-112,HF,medium,B-E07 B-E04 B-C02,,T-MD07 T-RN03 T-MD02,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-113,ST,hard,B-S07 B-F03 B-E05 B-F04 B-S03 B-C05,B-E02 B-F05,T-CM04 T-CM02 T-RN07 T-CM03 T-CM05 T-RN06,,Julio Clavasquin,accept,,11/5/2026
+CASE-114,CO,hard,B-E07 B-F01 B-S06 B-E03,B-S07,T-MD07 T-CM01 T-MD01 T-RN02,GR-A04 GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-115,PN,easy,B-S05 B-E06,,T-CM09 T-RN08,,Julio Clavasquin,accept,,11/5/2026
+CASE-116,HF,easy,B-S01 B-S02,,T-CM07 T-CM04,,Julio Clavasquin,accept,,11/5/2026
+CASE-117,OR,medium,B-E02 B-S04 B-C06,,T-PH03 T-CM06 T-RN05,,Julio Clavasquin,accept,,11/5/2026
+CASE-118,OR,hard,B-S07 B-C07 B-S04 B-E05 B-S03,B-E02 B-F03,T-CM04 T-MD04 T-CM06 T-RN07 T-CM05,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-119,OR,hard,B-S07 B-C07 B-C06 B-S04,B-S06 B-E02,T-CM04 T-MD04 T-RN05 T-CM06,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-120,OR,medium,B-S02 B-E01,,T-CM04 T-RN01,,Julio Clavasquin,accept,,11/5/2026
+CASE-121,PN,hard,B-E07 B-C03 B-C01 B-F03,B-C02 B-S06,T-MD07 T-MD02 T-PH01 T-CM02,GR-A02 GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-122,HF,easy,B-C04,,T-MD03,,Julio Clavasquin,accept,,11/5/2026
+CASE-123,HF,easy,B-E04 B-S01,,T-RN03 T-CM07,,Julio Clavasquin,accept,,11/5/2026
+CASE-124,ST,medium,B-S02 B-S06,,T-CM04 T-MD01,GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-125,HF,medium,B-S07 B-C02 B-E01,,T-CM04 T-MD02 T-RN01,,Julio Clavasquin,accept,,11/5/2026
+CASE-126,ST,hard,B-S07 B-C07 B-F04 B-E03 B-S03,B-F05,T-CM04 T-MD04 T-CM03 T-RN02 T-CM05,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-127,PN,medium,B-F03 B-E06 B-C05 B-F01,,T-CM02 T-RN08 T-RN06 T-CM01,,Julio Clavasquin,accept,,11/5/2026
+CASE-128,ST,medium,B-E07 B-S05 B-F05 B-E05,,T-MD07 T-CM09 T-CM08 T-RN07,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-129,PN,easy,B-C03,,T-MD02,,Julio Clavasquin,accept,,11/5/2026
+CASE-130,PN,hard,B-E07 B-F01 B-E03 B-E02 B-S05 B-S06,B-S07,T-MD07 T-CM01 T-RN02 T-PH03 T-CM09 T-MD01,GR-A04 GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-131,HF,medium,B-S07 B-E04 B-C05 B-C01,B-E01,T-CM04 T-RN03 T-RN06 T-PH01,GR-A02,Julio Clavasquin,accept,,11/5/2026
+CASE-132,PN,medium,B-E07 B-C02 B-C03 B-F05,B-F01,T-MD07 T-MD02 T-CM08,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-133,HF,medium,B-C07 B-E01,B-C02,T-MD04 T-RN01,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-134,CO,medium,B-S07 B-F05 B-E06,B-C03,T-CM04 T-CM08 T-RN08,,Julio Clavasquin,accept,,11/5/2026
+CASE-135,ST,medium,B-S07 B-S01 B-S03,,T-CM04 T-CM07 T-CM05,,Julio Clavasquin,accept,,11/5/2026
+CASE-136,HF,medium,B-E07 B-E04 B-C04,,T-MD07 T-RN03 T-MD03,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-137,ST,easy,B-E05 B-F04,,T-RN07 T-CM03,,Julio Clavasquin,accept,,11/5/2026
+CASE-138,CO,hard,B-E07 B-S05 B-S01 B-F03,B-S07,T-MD07 T-CM09 T-CM07 T-CM02,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-139,OR,medium,B-E07 B-S04,,T-MD07 T-CM06,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-140,OR,medium,B-S07 B-C06 B-F04,B-C04,T-CM04 T-RN05 T-CM03,,Julio Clavasquin,accept,,11/5/2026
+CASE-141,OR,medium,B-S07 B-E01 B-S04,,T-CM04 T-RN01 T-CM06,,Julio Clavasquin,accept,,11/5/2026
+CASE-142,ST,medium,B-S07 B-C04 B-E06,,T-CM04 T-MD03 T-RN08,,Julio Clavasquin,accept,,11/5/2026
+CASE-143,CO,medium,B-E07 B-C05 B-E02 B-C02,B-F05,T-MD07 T-RN06 T-PH02 T-MD02,GR-A03 GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-144,HF,easy,B-E04,,T-RN03,,Julio Clavasquin,accept,,11/5/2026
+CASE-145,HF,medium,B-E07 B-S02 B-C01,,T-MD07 T-CM04 T-PH01,GR-A02 GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-146,HF,easy,B-S06,,T-MD01,GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-147,ST,easy,B-E05 B-S03,,T-RN07 T-CM05,,Julio Clavasquin,accept,,11/5/2026
+CASE-148,OR,medium,B-S07 B-C06,,T-CM04 T-RN05,,Julio Clavasquin,accept,,11/5/2026
+CASE-149,CO,medium,B-E07 B-F01 B-C04,B-C03,T-MD07 T-CM01 T-MD03,GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-150,CO,hard,B-S07 B-C07 B-E06 B-C03 B-E03,B-F05,T-CM04 T-MD04 T-RN08 T-MD02 T-RN02,GR-A07,Julio Clavasquin,accept,,11/5/2026
+CASE-151,PN,hard,B-E07 B-C01 B-F01 B-S05 B-F05,B-C03,T-MD07 T-PH01 T-CM01 T-CM09 T-CM08,GR-A02 GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-152,HF,easy,B-F03,,T-CM02,,Julio Clavasquin,accept,,11/5/2026
+CASE-153,ST,easy,B-F04 B-E04,,T-CM03 T-RN03,,Julio Clavasquin,accept,,11/5/2026
+CASE-154,OR,medium,B-S02 B-S04 B-C06,,T-CM04 T-CM06 T-RN05,,Julio Clavasquin,accept,,11/5/2026
+CASE-155,OR,medium,B-E07 B-S03 B-S06,,T-MD07 T-CM05 T-MD01,GR-A04 GR-A06,Julio Clavasquin,accept,,11/5/2026
+CASE-156,PN,easy,B-C03 B-E02,,T-MD02 T-PH02,GR-A03,Julio Clavasquin,accept,,11/5/2026
+CASE-157,HF,medium,B-S07 B-C02 B-S01 B-E03,,T-CM04 T-MD02 T-CM07 T-RN02,,Julio Clavasquin,accept,,11/5/2026
+CASE-158,ST,hard,B-S07 B-E02 B-F03 B-E05 B-F04,B-C02,T-CM04 T-PH02 T-CM02 T-RN07 T-CM03,GR-A03,Julio Clavasquin,accept,,11/5/2026
+CASE-159,CO,medium,B-E07 B-C05 B-C01 B-E06,,T-MD07 T-RN06 T-PH01 T-RN08,GR-A02 GR-A04,Julio Clavasquin,accept,,11/5/2026
+CASE-160,CO,medium,B-S02 B-F05 B-E01 B-C07,,T-CM04 T-CM08 T-RN01 T-MD04,GR-A07,Julio Clavasquin,accept,,11/5/2026
