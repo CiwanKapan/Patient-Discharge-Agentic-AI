@@ -11,6 +11,8 @@ keys for 20 cases from the case text alone.
 
 - **Who:** two people who did not write the case generator. **They must not see any answer key first**, including
   the `full_review/` pages below, so this check comes before the full review (or uses different people).
+  Annotators: Dominic and Julio. Dataset Lead (adjudicates): Ciwan. Give the annotators only the
+  `independent_check/` folder (for example as a zip), not a clone of the repo: the keys are in the same repo.
 - **Cases:** `independent_check/cases.txt` — 20 evaluation cases, seeded and stratified (4 per condition, 6/10/4
   easy/medium/hard), covering cross-field, note-only, information-gap, near-miss, temptation, and sign-off cases.
 - **What they see:** `independent_check/packet/CASE-###.md` (each case exactly as the systems see it: no key, no
@@ -18,7 +20,13 @@ keys for 20 cases from the case text alone.
   systems receive).
 - **What they write:** in a copy of `annotations_template.csv`, one row per item: the barriers (with the
   supporting field or note in `evidence`), the information gaps (by the barrier each could indicate), and one task
-  per barrier. Work separately.
+  per barrier. Work separately. `independent_check/INSTRUCTIONS.md` says how to fill the CSV: one ID per row, and
+  one row with `item_type` = `none` for a case where nothing is found, so that is not mistaken for a skipped case.
+- **Input checks (added 2026-11-04, before any annotation):** combine the two annotators' files into one CSV with the
+  same header, then run the script. It scores nothing until the file is clean: it stops, naming each row, on an ID that
+  is not valid for the case's condition (a typo, lowercase, two IDs in one cell), a missing annotator name or unknown
+  `item_type`, a case outside `cases.txt`, or a case an annotator has no row for. These checks only validate the input;
+  the kappa, the 0.80 bar, the keys, and the cases are unchanged, so no amendment is needed.
 - **Measure:** `python -m evaluation.key_agreement <annotations.csv>` — Cohen's kappa and positive agreement for
   barriers, information gaps, and tasks: each annotator against the generated keys, and annotator against
   annotator. `disagreements.csv` lists every item to adjudicate.

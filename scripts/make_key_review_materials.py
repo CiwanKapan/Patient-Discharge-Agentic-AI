@@ -7,7 +7,8 @@ data/key_reviews/independent_check/   the 20-case independent key check (pre-reg
                            with coverage of cross-field, note-only, information-gap, near-miss, and temptation cases
     packet/CASE-###.md     each case exactly as the models see it: NO answer key, difficulty, or distractor labels
     reference.md           the taxonomy and chart-reading rules the annotators work from (what the models get)
-    annotations_template.csv
+    annotations_template.csv   one blank row per case; item_type is left empty (see INSTRUCTIONS.md)
+    INSTRUCTIONS.md        how to fill in the CSV, with an example on a made-up case
 data/key_reviews/full_review/          the review of all 160 keys before the run
     CASE-###.md            the case and its answer key side by side
     review_sheet.csv       one row per case for the reviewer's decision
@@ -34,6 +35,38 @@ from src.utils.run_records import CASE_SETS, case_files  # noqa: E402
 OUT = ROOT / "data" / "key_reviews"
 SEED = 20261031
 CONDS = ("HF", "CO", "PN", "OR", "ST")
+
+# Written next to the packet. The example uses a made-up case: evaluation.key_agreement rejects any case that is not in
+# cases.txt, so copying the example into a real file stops the run instead of priming or skewing anyone's answers.
+INSTRUCTIONS = """# Independent key check: how to fill in your answers
+
+Work alone. Open only this folder: `packet/`, `reference.md` and `annotations_template.csv`. Do not open
+`data/answer_keys/` or `data/key_reviews/full_review/`, which show the answers.
+
+1. Copy `annotations_template.csv` to `annotations_<your name>.csv`.
+2. For each case, read the packet, apply the rules in `reference.md`, and write one row per item. Put your name in the
+   `annotator` column of every row you use.
+3. **One ID per row.** If a case needs more rows, copy that case's row as many times as you need. Never put two IDs
+   in one cell.
+   - `item_type` is `barrier`, `information_gap` or `task`. Write the type in full.
+   - `item_id` is a barrier ID (B-...) for a barrier or an information gap (the barrier the gap could indicate),
+     and a task ID (T-...) for a task. Write it exactly as it appears in `reference.md`.
+   - `evidence` is the field or note that supports it. One task per barrier.
+4. **If you find nothing in a case**, write one row for it with `item_type` = `none` and an empty `item_id`.
+5. Every one of the 20 cases needs at least one row from you. A case with no rows is an error, not "nothing found".
+   Template rows you never touch (no name) are ignored.
+
+When the scoring script finds a problem, it stops and names the row to fix. It never skips a row.
+
+## Example (made-up case, not one of the 20; do not copy it into your file)
+
+| annotator | case_id | item_type | item_id | evidence | notes |
+|---|---|---|---|---|---|
+| Sam | CASE-000 | barrier | B-F03 | caregiver_status: not_started | |
+| Sam | CASE-000 | task | T-CM02 | for B-F03 | |
+| Sam | CASE-000 | information_gap | B-S07 | transport booked, no pickup time | |
+| Sam | CASE-999 | none | | | reviewed; nothing found |
+"""
 
 
 def manifest_rows() -> dict[str, dict]:
@@ -123,7 +156,8 @@ def main() -> None:
         w = csv.writer(fh)
         w.writerow(["annotator", "case_id", "item_type", "item_id", "evidence", "notes"])
         for cid in subset:
-            w.writerow(["", cid, "barrier | information_gap | task", "", "", ""])
+            w.writerow(["", cid, "", "", "", ""])
+    (ic / "INSTRUCTIONS.md").write_text(INSTRUCTIONS)
 
     # ---------------- full review (keys visible)
     fr = OUT / "full_review"

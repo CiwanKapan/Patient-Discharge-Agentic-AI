@@ -2,8 +2,14 @@
 
     python -m evaluation.key_agreement data/key_reviews/independent_check/annotations.csv
 
-The annotations CSV has one row per annotated item:
-    annotator, case_id, item_type (barrier | information_gap | task), item_id, evidence, notes
+The annotations CSV has one row per annotated item (one ID per row):
+    annotator, case_id, item_type (barrier | information_gap | task | none), item_id, evidence, notes
+
+A case where an annotator found nothing gets one row with item_type `none` and an empty item_id, so "reviewed, found
+nothing" is not confused with "skipped". Nothing is scored until the input is clean: the run stops, naming each row, on a
+missing annotator, a case outside the cases file, an unknown item_type, an empty item_id, an ID that is not valid for the
+case's condition (a typo, lowercase, two IDs in one cell), or a `none` row beside items. It also stops if any annotator has
+no row for a case in the cases file (`independent_check/cases.txt`, or --cases).
 
 For each item type, every (case, ID) pair the taxonomy allows for the case's condition is a yes/no judgment:
 does the annotator (or key) list it? Agreement is computed over those pairs, pooled across the cases:
@@ -32,6 +38,9 @@ from src.pipeline._common import load_taxonomy  # noqa: E402
 from src.utils.run_records import case_path, key_path  # noqa: E402
 
 ITEM_TYPES = ("barrier", "information_gap", "task")
+NONE = "none"  # item_type of the row that records "reviewed this case, found nothing"
+CASES_FILE = ROOT / "data" / "key_reviews" / "independent_check" / "cases.txt"
+MAX_ERRORS_SHOWN = 50
 
 
 def universe(taxonomy: dict, condition: str, item_type: str) -> set[str]:
@@ -46,16 +55,74 @@ def key_items(case_id: str) -> dict[str, set[str]]:
             "task": {t["task_id"] for t in k["tasks"]}}
 
 
-def read_annotations(path: Path) -> dict[str, dict[str, dict[str, set[str]]]]:
-    """annotator -> case_id -> item_type -> IDs."""
+def read_cases(path: Path) -> list[str]:
+    """The cases every annotator must cover: one ID per line, # comments allowed."""
+    cases = [ln.strip() for ln in Path(path).read_text().splitlines() if ln.strip() and not ln.lstrip().startswith("#")]
+    if not cases:
+        raise SystemExit(f"{path}: no case IDs found")
+    return sorted(set(cases))
+
+
+def read_annotations(path: Path, cases: list[str], taxonomy: dict,
+                     conditions: dict[str, str]) -> dict[str, dict[str, dict[str, set[str]]]]:
+    """annotator -> case_id -> item_type -> IDs, for every annotator and every case in `cases`.
+
+    Stops (SystemExit listing every problem, nothing scored) rather than dropping anything: a row that cannot be
+    counted would silently change the kappa that decides whether the keys pass."""
+    errors: list[str] = []
     out: dict = defaultdict(lambda: defaultdict(lambda: {t: set() for t in ITEM_TYPES}))
-    for r in csv.DictReader(Path(path).open()):
-        who, cid, kind, item = (r.get(k, "").strip() for k in ("annotator", "case_id", "item_type", "item_id"))
-        if not (who and cid and item):
-            continue
-        if kind not in ITEM_TYPES:
-            raise SystemExit(f"unknown item_type {kind!r} for {cid}; use one of {ITEM_TYPES}")
-        out[who][cid][kind].add(item)
+    touched: dict[str, set[str]] = defaultdict(set)   # annotator -> cases with any row at all
+    kinds: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))  # annotator -> case -> valid kinds
+    with Path(path).open(newline="") as fh:
+        reader = csv.DictReader(fh)
+        for r in reader:
+            who, cid, item = (str(r.get(k) or "").strip() for k in ("annotator", "case_id", "item_id"))
+            kind = str(r.get("item_type") or "").strip().lower()
+            if not (who or kind or item):
+                continue  # a template row nobody touched
+            where = f"row {reader.line_num} ({who or 'no annotator'}, {cid or 'no case_id'})"
+            if not who:
+                errors.append(f"{where}: annotator is empty")
+                continue
+            if cid not in conditions:
+                errors.append(f"{where}: case_id is not one of the {len(cases)} cases in the cases file")
+                continue
+            touched[who].add(cid)
+            if kind == NONE:
+                if item:
+                    errors.append(f"{where}: item_type 'none' needs an empty item_id (got {item!r})")
+                else:
+                    kinds[who][cid].add(NONE)
+                continue
+            if kind not in ITEM_TYPES:
+                errors.append(f"{where}: item_type {kind!r} must be one of {', '.join(ITEM_TYPES + (NONE,))}")
+                continue
+            if not item:
+                errors.append(f"{where}: item_id is empty (use item_type 'none' if nothing was found)")
+                continue
+            valid = universe(taxonomy, conditions[cid], kind)
+            if item not in valid:
+                hint = f"; did you mean {item.upper()}?" if item.upper() in valid else ""
+                errors.append(f"{where}: {item!r} is not a valid {'task' if kind == 'task' else 'barrier'} ID for "
+                              f"condition {conditions[cid]} (one ID per row{hint})")
+                continue
+            out[who][cid][kind].add(item)
+            kinds[who][cid].add(kind)
+    for who in sorted(touched):
+        missing = [c for c in cases if c not in touched[who]]
+        if missing:
+            errors.append(f"{who}: no rows for {len(missing)} of {len(cases)} cases ({', '.join(missing)}); add rows, "
+                          "or a 'none' row for a case where nothing was found")
+        errors += [f"{who}, {c}: has a 'none' row and also items; keep one or the other"
+                   for c in cases if NONE in kinds[who][c] and len(kinds[who][c]) > 1]
+    if errors:
+        shown = errors[:MAX_ERRORS_SHOWN]
+        more = [f"... and {len(errors) - len(shown)} more"] if len(errors) > len(shown) else []
+        raise SystemExit(f"{path}: {len(errors)} problem(s); nothing was scored.\n"
+                         + "\n".join(f"  {e}" for e in shown + more))
+    for who in touched:  # include annotators who found nothing in some or all cases
+        for cid in cases:
+            out[who][cid]
     return out
 
 
@@ -93,16 +160,16 @@ def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="python -m evaluation.key_agreement", description=__doc__.split("\n")[0])
     p.add_argument("annotations", type=Path)
     p.add_argument("--out", type=Path, help="default: next to the annotations file")
+    p.add_argument("--cases", type=Path, default=CASES_FILE,
+                   help="cases every annotator must cover (default: independent_check/cases.txt)")
     a = p.parse_args(argv)
     taxonomy = load_taxonomy()
-    ann = read_annotations(a.annotations)
+    cases = read_cases(a.cases)
+    conditions = {cid: json.loads(case_path(cid).read_text())["condition"] for cid in cases}
+    ann = read_annotations(a.annotations, cases, taxonomy, conditions)
     if not ann:
         p.error("no annotations found")
-    cases = sorted({cid for by_case in ann.values() for cid in by_case})
-    conditions = {cid: json.loads(case_path(cid).read_text())["condition"] for cid in cases}
-    sources = {"key": {cid: key_items(cid) for cid in cases},
-               **{who: {cid: by_case.get(cid, {t: set() for t in ITEM_TYPES}) for cid in cases}
-                  for who, by_case in ann.items()}}
+    sources = {"key": {cid: key_items(cid) for cid in cases}, **ann}
     results, disagreements = [], []
     for first, second in [("key", w) for w in ann] + list(itertools.combinations(sorted(ann), 2)):
         rows, dis = compare(sources[first], sources[second], cases, taxonomy, conditions)
