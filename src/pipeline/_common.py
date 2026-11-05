@@ -24,7 +24,7 @@ from src.utils.llm import LLMClient, LLMError, call_record, retry_prompt
 ROOT = Path(__file__).resolve().parents[2]
 TAXONOMY_PATH = ROOT / "config" / "taxonomy.json"
 
-PROMPT_VERSION = "v4"  # v4: taxonomy 2.4 (B-C02 adds OR; documented-status wording for B-C07, B-C05, B-C06, B-S03, B-C04)
+PROMPT_VERSION = "v5"  # v5: T-RN01 description no longer names a sign-off (taxonomy 2.5). v4: taxonomy 2.4 (B-C02 adds OR; documented-status wording for B-C07, B-C05, B-C06, B-S03, B-C04)
 NOTE_FIELDS = tuple(FreeTextNotes.model_fields)
 
 S = TypeVar("S", bound=BaseModel)

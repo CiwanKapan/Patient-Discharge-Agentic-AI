@@ -36,9 +36,9 @@ run** on any case. It is not part of this study.
   B-E02 prior authorization keyed to T-PH03 (9 keys; review sheet: all 10 rows, including 1 development key, accepted by Reviewer C on 2026-10-30); B-F02 removed (30 keys,
   Amendment 3).
 - **Development set:** 15 separate cases (`data/dev/`) for pilots and checks only, never reported as results.
-- **Taxonomy:** version 2.4 (25 barriers), approved by the mentor and the Dataset Lead on 2026-10-29: 2.1 (task-to-sign-off list, T-CM09, T-MD02 for OR, AU-09); 2.2 (T-RN01 follows the T-MD07 sign-off;
+- **Taxonomy:** version 2.5 (25 barriers; Amendment 11), with 2.1 to 2.4 approved by the mentor and the Dataset Lead on 2026-10-29: 2.1 (task-to-sign-off list, T-CM09, T-MD02 for OR, AU-09); 2.2 (T-RN01 follows the T-MD07 sign-off;
   B-S07 pickup-time wording); 2.3 (B-F02 removed, Amendment 3); 2.4 (B-C02 covers OR; documented-status wording for
-  B-C07, B-C05, B-C06, B-S03, B-C04). Pipeline prompt v4, B2 prompt v5. Prompts do not tell any arm which tasks
+  B-C07, B-C05, B-C06, B-S03, B-C04). Pipeline prompt v5, B2 prompt v6 (Amendment 11). Prompts do not tell any arm which tasks
   need which sign-off action (`governance.task_approvals`).
 
 ## 3. Settings and design
@@ -236,6 +236,17 @@ Each change is listed with the original plan and its reason in the appendix.
 | 10 | **Independent answer keys:** before the run, two annotators who did not write the generator key 20 stratified cases from the case text alone (`data/key_reviews/independent_check/`); agreement with the generated keys and between annotators is measured (Cohen's kappa, `evaluation/key_agreement.py`); every disagreement is adjudicated; systematic generator errors are fixed before the run. **Decision threshold (confirmed 2026-10-29, before any annotation):** barrier kappa against the generated keys of at least 0.80 for each annotator separately; information-gap and task kappa, and annotator-vs-annotator agreement, are reported but do not gate. If either annotator falls below 0.80, the keys are not accepted as they stand: every disagreement is adjudicated, systematic generator errors are fixed (keys regenerated, case files unchanged), and the full review of all 160 keys looks specifically for those error patterns. All 160 keys are then reviewed before the run. |
 
 **State when recorded.** Only development-set (pilot) outputs had been seen; no evaluation-set run had started.
+
+### Amendments 11–12 — 2026-11-04 (recorded before the evaluation-set run)
+
+Approved on 2026-11-04 by the project team.
+
+| # | Change |
+|---|---|
+| 11 | **Sign-off wording removed from a task description:** the T-RN01 description named the T-MD07 sign-off (GR-A04) and reached both LLM arms through the task reference, against the decision that prompts do not tell any arm which tasks need which sign-off. The clause is removed (taxonomy 2.5; pipeline prompt v5, B2 prompt v6). No case or key changed. Pilot results before this change were produced with that clause, and the development pilot is re-run once with the new prompts before the evaluation run. |
+| 12 | **Three evaluation cases run before the evaluation run:** on 2026-10-29, CASE-151, CASE-152 and CASE-154 were run through the baselines and pipeline by the Dataset Lead as a test that the code worked. The statement that only development outputs had been seen was therefore inaccurate for these three cases. The Dataset Lead reports that these outputs did not lead to any change in the prompts, taxonomy, generator or keys. All 160 cases stay in the primary analysis; results are also reported excluding these three cases. |
+
+**State when recorded.** Development-set (pilot) outputs and the three cases in Amendment 12 had been seen; no evaluation-set run had started.
 
 ## Appendix: deviations from the original plan
 

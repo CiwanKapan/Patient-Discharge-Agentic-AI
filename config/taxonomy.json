@@ -1,10 +1,10 @@
 {
   "meta": {
     "name": "Discharge Coordinator AI — Barrier, Task, and Governance Taxonomy",
-    "version": "2.4",
+    "version": "2.5",
     "source": "Discharge_Coordinator_AI_taxonomy_v2_cleaned.docx",
     "amendments": {
-      "version": "2.4",
+      "version": "2.5",
       "base": "2.0 (source .docx)",
       "changes": [
         "governance.task_approvals: tasks whose completion needs an approval-required action, with governance.task_approval_rationale for the judgment calls",
@@ -14,6 +14,7 @@
         "2.2: T-RN01 defined as teaching that follows the T-MD07 sign-off, so it needs no sign-off of its own",
         "2.2: B-S07 description states that booked transport with no documented pickup time is an information gap",
         "2.3: B-F02 (follow-up too far out) removed: judging whether follow-up timing is clinically appropriate is a clinical determination, outside the system's scope (pre-registration Amendment 3). T-CM01 no longer cites a safe clinical window and resolves B-F01 only. Supersedes the 2.2 B-F02 window field.",
+        "2.5: T-RN01 description no longer names the T-MD07 sign-off, because it reached the prompts through the task reference and the prompts exclude task approvals",
         "2.4: B-C02 (pending labs) conditions extended to OR",
         "2.4: B-C07, B-C05, B-C06, B-S03, B-C04 descriptions reworded to documented status instead of a clinical judgment"
       ],
@@ -37,7 +38,7 @@
       ],
       "review_flags_status": "All flags resolved 2026-10-29",
       "applied_by": "scripts/build_config.py",
-      "approval": "Taxonomy 2.1-2.4 approved by the mentor and the Dataset Lead on 2026-10-29 (go-ahead for all changes, relayed by the project team)."
+      "approval": "Taxonomy 2.1-2.4 approved by the mentor and the Dataset Lead on 2026-10-29 (go-ahead for all changes, relayed by the project team). Taxonomy 2.5 approved by the project team on 2026-11-04."
     },
     "rule": "Answer keys and normalized system outputs use these IDs only, never free text. Only the Dataset Lead may add entries, after team review.",
     "counts": {
@@ -689,7 +690,7 @@
       "id": "T-RN01",
       "name": "Conduct medication education",
       "role_group": "nursing",
-      "description": "Nurse educates patient or caregiver on new and changed medications: dose, timing, side effects, and missed-dose action. For a changed medication, this teaching happens only after the change has been communicated under T-MD07 (which needs GR-A04 sign-off), so T-RN01 needs no sign-off of its own.",
+      "description": "Nurse educates patient or caregiver on new and changed medications: dose, timing, side effects, and missed-dose action. For a changed medication, this teaching happens only after the change has been communicated under T-MD07.",
       "conditions": [
         "HF",
         "CO",

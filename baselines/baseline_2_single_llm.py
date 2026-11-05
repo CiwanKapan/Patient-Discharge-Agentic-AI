@@ -64,7 +64,7 @@ from src.utils.run_config import check_environment, load_run_config
 rec_generator = importlib.import_module("src.pipeline.05_rec_generator")
 
 SYSTEM = "baseline_2_single_llm"
-PROMPT_VERSION = "v5"  # v5: taxonomy 2.4 (B-C02 adds OR; documented-status barrier wording)
+PROMPT_VERSION = "v6"  # v6: T-RN01 description no longer names a sign-off (taxonomy 2.5). v5: taxonomy 2.4 (B-C02 adds OR; documented-status barrier wording)
 
 
 # ------------------------------------------------------------------ LLM-facing output schema

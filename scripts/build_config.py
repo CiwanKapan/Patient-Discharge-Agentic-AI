@@ -59,8 +59,7 @@ AU_SIGNOFF = {
 }
 T_RN01_DESCRIPTION = ("Nurse educates patient or caregiver on new and changed medications: dose, timing, side effects, "
                       "and missed-dose action. For a changed medication, this teaching happens only after the change "
-                      "has been communicated under T-MD07 (which needs GR-A04 sign-off), so T-RN01 needs no sign-off "
-                      "of its own.")
+                      "has been communicated under T-MD07.")
 B_S07_ADDITION = (" If transport is booked but its pickup time, or the planned discharge window, is not documented, "
                   "the timing cannot be checked: this is an information gap for B-S07 (confirm the pickup time), not "
                   "a barrier.")
@@ -77,7 +76,7 @@ DOCUMENTED_STATUS_DESCRIPTIONS = {
     "B-C04": "A consult was requested and is documented as not yet completed.",
 }
 AMENDMENTS = {
-    "version": "2.4",
+    "version": "2.5",
     "base": "2.0 (source .docx)",
     "changes": [
         "governance.task_approvals: tasks whose completion needs an approval-required action, with "
@@ -90,6 +89,7 @@ AMENDMENTS = {
         "2.3: B-F02 (follow-up too far out) removed: judging whether follow-up timing is clinically appropriate is a "
         "clinical determination, outside the system's scope (pre-registration Amendment 3). T-CM01 no longer cites a "
         "safe clinical window and resolves B-F01 only. Supersedes the 2.2 B-F02 window field.",
+        "2.5: T-RN01 description no longer names the T-MD07 sign-off, because it reached the prompts through the task reference and the prompts exclude task approvals",
         "2.4: B-C02 (pending labs) conditions extended to OR",
         "2.4: B-C07, B-C05, B-C06, B-S03, B-C04 descriptions reworded to documented status instead of a clinical "
         "judgment",
@@ -109,7 +109,7 @@ AMENDMENTS = {
     "review_flags_status": "All flags resolved 2026-10-29",
     "applied_by": "scripts/build_config.py",
     "approval": "Taxonomy 2.1-2.4 approved by the mentor and the Dataset Lead on 2026-10-29 "
-                "(go-ahead for all changes, relayed by the project team).",
+                "(go-ahead for all changes, relayed by the project team). Taxonomy 2.5 approved by the project team on 2026-11-04.",
 }
 
 
@@ -200,7 +200,7 @@ def build_taxonomy(path):
     return {
         "meta": {
             "name": "Discharge Coordinator AI — Barrier, Task, and Governance Taxonomy",
-            "version": "2.4",  # 2.0 from the .docx plus the amendments below
+            "version": "2.5",  # 2.0 from the .docx plus the amendments below
             "source": "Discharge_Coordinator_AI_taxonomy_v2_cleaned.docx",
             "amendments": AMENDMENTS,
             "rule": "Answer keys and normalized system outputs use these IDs only, never free text. "

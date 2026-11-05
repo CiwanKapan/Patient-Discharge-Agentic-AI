@@ -142,3 +142,10 @@ def test_every_approval_action_requires_approval(taxonomy):
     for a in taxonomy["governance"]["approval_required_actions"]:
         c = approval_gate.classify(taxonomy, _rec(a["action"]))
         assert c.requires_human_approval and c.matched_rule_id == a["id"]
+
+
+def test_task_prompt_text_names_no_sign_off():
+    """Prompts must not say which tasks need sign-off: approval_label_omissions measures whether models infer it."""
+    from src.pipeline._common import load_taxonomy, task_reference
+
+    assert "GR-A" not in task_reference(load_taxonomy())
