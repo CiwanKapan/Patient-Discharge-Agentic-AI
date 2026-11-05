@@ -66,7 +66,7 @@ case), and are recorded in the pre-registration's amendment log before the run.
   - **CASE-075:** issue accepted, resolved differently from the request. The unsigned home oxygen order is keyed as
     new barrier B-S08, not B-C07, which is documented medical instability (change sheet above; Amendment 13, approved
     2026-11-05).
-  - **CASE-086, CASE-110:** B-C01 and T-PH01 requested; **not added (project team decision, 2026-11-05).** The decision
+  - **CASE-086, CASE-110:** B-C01 and T-PH01 requested; **not added (adjudicated 2026-11-05 by Julio, Dominic, and Ciwan, Dataset Lead).** The decision
     also covers DEV-007, which has the same note and field. "Pharmacy hasn't finished" names no object and does not say
     reconciliation is incomplete, and the field reads complete. CASE-097 is not a precedent: its B-C01 rests on a field
     that is in progress. Both annotators left B-C01 out of the two evaluation cases in the independent check, though
