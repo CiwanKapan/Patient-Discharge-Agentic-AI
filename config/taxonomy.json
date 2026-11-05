@@ -43,7 +43,7 @@
     },
     "rule": "Answer keys and normalized system outputs use these IDs only, never free text. Only the Dataset Lead may add entries, after team review.",
     "counts": {
-      "barriers": 25,
+      "barriers": 26,
       "tasks": 27,
       "allowed_tools": 11,
       "forbidden_tools": 6,

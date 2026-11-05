@@ -87,3 +87,10 @@ def test_taxonomy_checks(taxonomy):
 
     wrong_flag = BarrierDetection(barriers=[{**S07, "cross_field": False}])
     assert any("cross_field" in e for e in check_against_taxonomy(taxonomy, "HF", wrong_flag))
+
+
+def test_taxonomy_counts_match_its_contents(taxonomy):
+    """meta.counts is written by scripts/build_config.py; a direct edit to the taxonomy must keep it in step."""
+    counts = taxonomy["meta"]["counts"]
+    assert counts["barriers"] == len(taxonomy["barriers"])
+    assert counts["tasks"] == len(taxonomy["tasks"])
