@@ -1,0 +1,10 @@
+first,second,item_type,n,both,only_first,only_second,kappa,positive_agreement,observed
+key,Dominic,barrier,416,55,0,0,1.0,1.0,1.0
+key,Dominic,information_gap,416,10,0,0,1.0,1.0,1.0
+key,Dominic,task,448,55,0,0,1.0,1.0,1.0
+key,Julio,barrier,416,55,0,0,1.0,1.0,1.0
+key,Julio,information_gap,416,10,0,0,1.0,1.0,1.0
+key,Julio,task,448,55,0,0,1.0,1.0,1.0
+Dominic,Julio,barrier,416,55,0,0,1.0,1.0,1.0
+Dominic,Julio,information_gap,416,10,0,0,1.0,1.0,1.0
+Dominic,Julio,task,448,55,0,0,1.0,1.0,1.0

@@ -22,7 +22,7 @@ keys for 20 cases from the case text alone.
   supporting field or note in `evidence`), the information gaps (by the barrier each could indicate), and one task
   per barrier. Work separately. `independent_check/INSTRUCTIONS.md` says how to fill the CSV: one ID per row, and
   one row with `item_type` = `none` for a case where nothing is found, so that is not mistaken for a skipped case.
-- **Input checks (added 2026-11-04, before any annotation):** combine the two annotators' files into one CSV with the
+- **Input checks (added 2026-11-04, after annotation began and before any scoring):** combine the two annotators' files into one CSV with the
   same header, then run the script. It scores nothing until the file is clean: it stops, naming each row, on an ID that
   is not valid for the case's condition (a typo, lowercase, two IDs in one cell), a missing annotator name or unknown
   `item_type`, a case outside `cases.txt`, or a case an annotator has no row for. These checks only validate the input;
@@ -36,6 +36,13 @@ keys for 20 cases from the case text alone.
   A disagreement that reveals a systematic generator error (as the prior-authorization one did) is fixed in the
   generator, the keys are regenerated (case files unchanged), and the change gets a review sheet below. If kappa
   is below 0.80, the full review of all 160 keys looks specifically for the error patterns found here.
+- **Result (scored 2026-11-04): passed.** Barrier kappa against the generated keys was 1.000 for each annotator. All
+  other kappas (information gaps, tasks, and annotator against annotator) were also 1.000, with 0 disagreements across
+  120 items (55 barriers, 55 tasks, 10 information gaps), so nothing needed adjudication. Of the 55 barriers, 40 follow
+  directly from the field status rules; 15 needed the notes or a cross-field reading, and 8 had more than one candidate
+  task. Each annotator reported starting on 2026-10-29, working alone, seeing no key, and using no AI tools. The
+  Dataset Lead pasted their answers into the CSV files, and each annotator confirmed that the file matches their
+  answers. The full review of all 160 keys is still required before the run.
 
 ## 2. Change review sheets (decide each row)
 
