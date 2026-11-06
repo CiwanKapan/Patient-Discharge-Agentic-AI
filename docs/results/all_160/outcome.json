@@ -1,0 +1,14 @@
+{
+  "outcome": "mixed",
+  "reason": "",
+  "reversal": false,
+  "reversals": [],
+  "hypotheses_beaten_against_both": [
+    "H3",
+    "H4a"
+  ],
+  "h4a_strongest_baseline": "B2",
+  "h4a_margin_over_strongest": 0.3549779220779221,
+  "effect_threshold": 0.05,
+  "h4a_margin_required": 0.2
+}

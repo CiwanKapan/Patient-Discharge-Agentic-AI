@@ -1,0 +1,15 @@
+system,metric,cases,runs,value_r1,value_r2,value_r3,mean,sd,min,max
+B2,barrier_recall,160,3,0.9978,0.9978,0.9934,0.9964,0.0025,0.9934,0.9978
+B2,barrier_precision,160,3,0.9703,0.9765,0.9743,0.9737,0.0032,0.9703,0.9765
+B2,task_recall,160,3,0.9694,0.9562,0.9759,0.9672,0.01,0.9562,0.9759
+B2,plan_completeness,160,3,0.8408,0.8221,0.8483,0.8371,0.0135,0.8221,0.8483
+B2,approval_accuracy,160,3,0.6733,0.604,0.6337,0.637,0.0348,0.604,0.6733
+B2,governance_compliance,160,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+B2,identical_barrier_sets_across_runs,160,3,,,,0.9,,,
+Agentic,barrier_recall,160,3,1.0,0.9978,0.9956,0.9978,0.0022,0.9956,1.0
+Agentic,barrier_precision,160,3,0.9724,0.9723,0.9702,0.9717,0.0012,0.9702,0.9724
+Agentic,task_recall,160,3,1.0,0.9978,0.9956,0.9978,0.0022,0.9956,1.0
+Agentic,plan_completeness,160,3,0.9906,0.9906,0.9869,0.9894,0.0022,0.9869,0.9906
+Agentic,approval_accuracy,160,3,1.0,1.0,1.0,1.0,0.0,1.0,1.0
+Agentic,governance_compliance,160,3,1.0,1.0,1.0,1.0,0.0,1.0,1.0
+Agentic,identical_barrier_sets_across_runs,160,3,,,,0.9625,,,
