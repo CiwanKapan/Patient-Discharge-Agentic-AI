@@ -274,7 +274,7 @@ Approved on 2026-11-05 by the project team, which also accepted both rows of the
 
 ### Amendment 14 — 2026-11-05 (recorded during the evaluation-set run)
 
-Approved on 2026-11-05 by the Dataset Lead.
+Approved on 2026-11-05 by the Dataset Lead, and by the mentor (recorded 2026-11-05).
 
 | # | Change |
 |---|---|
