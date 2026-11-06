@@ -6,6 +6,7 @@ pipeline), reports token usage, and can be told to fail in specific ways.
 import csv
 import json
 import re
+import shutil
 from pathlib import Path
 
 import pytest
@@ -274,3 +275,17 @@ def test_evaluation_combines_experiments_later_arms_win(tmp_path, taxonomy, caps
     assert "B2 from" in capsys.readouterr().out
     with pytest.raises(SystemExit):
         evaluate.main(["--experiment", str(tmp_path / "first"), "--experiment", str(tmp_path / "rerun")])
+
+
+def test_a_moved_run_keeps_its_audit_trail(experiment, tmp_path):
+    """Run records hold absolute audit paths; scoring a run moved to another machine still finds its logs."""
+    root, _ = experiment
+    moved = tmp_path / "moved"
+    shutil.copytree(root / "exp", moved)
+    record = moved / "agentic" / "r1" / "CASE-151.run.json"
+    data = json.loads(record.read_text())
+    data["audit_path"] = "/elsewhere/runs/exp/agentic/r1/audit/CASE-151/gone.jsonl"
+    record.write_text(json.dumps(data))
+    rd = next(r for r in evaluate.discover(moved)["Agentic"] if r.run == "r1")
+    *_, audit_present = evaluate.load_plan(rd, "CASE-151")
+    assert audit_present

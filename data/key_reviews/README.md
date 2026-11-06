@@ -63,6 +63,8 @@ case), and are recorded in the pre-registration's amendment log before the run.
 - **Result (reviewed 2026-11-05, Julio Clavasquin): `full_review/review_sheet_Julio.csv`.** 157 accepted, 3 changes
   requested. The sheet is kept as submitted, so it shows the keys as they were reviewed, before Amendment 13.
   `review_sheet.csv` is the blank template.
+  **Generator authorship:** Ciwan wrote the case generator. Julio Clavasquin committed it to the repository (`1700fb9`)
+  and did not write it, so he is eligible to review the keys. His later generator edit for B-S08 (`8c968f5`) was made after this review.
   - **CASE-075:** issue accepted, resolved differently from the request. The unsigned home oxygen order is keyed as
     new barrier B-S08, not B-C07, which is documented medical instability (change sheet above; Amendment 13, approved
     2026-11-05).

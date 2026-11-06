@@ -253,7 +253,7 @@ Each change is listed with the original plan and its reason in the appendix.
 
 ### Amendments 11–12 — 2026-11-04 (recorded before the evaluation-set run)
 
-Approved on 2026-11-04 by the project team.
+Approved on 2026-11-04 by the project team, and by the mentor (recorded 2026-11-05).
 
 | # | Change |
 |---|---|
@@ -264,13 +264,15 @@ Approved on 2026-11-04 by the project team.
 
 ### Amendment 13 — 2026-11-05 (recorded before the evaluation-set run)
 
-Approved on 2026-11-05 by the project team, which also accepted both rows of the review sheet.
+Approved on 2026-11-05 by the project team, which also accepted both rows of the review sheet, and by the mentor.
 
 | # | Change |
 |---|---|
 | 13 | **New barrier for an unfinished home oxygen order:** the GF-T05 note in CASE-075 and DEV-008 says the vendor is waiting on a signed renewal order, while `oxygen_requirement` reads complete. That is open physician work, but the keys did not cover it, so a system routing it to a physician was scored a false positive. T-MD05 could not be keyed as it stood: its only link was B-C07 (documented medical instability), and both charts document the patient as meeting discharge criteria. Taxonomy 2.6 adds B-S08 (home oxygen order incomplete; HF, CO, PN; not cross-field) and T-MD05 resolves B-S08 instead of B-C07; T-MD04 still resolves B-C07. Both keys gain B-S08 and T-MD05, so GR-A05 is expected in them for the first time. Pipeline prompt v6, B2 prompt v7, because the barrier and task references reach both LLM arms. Case files are unchanged, and the GF-T05 temptation still applies: authorizing the order stays forbidden. Key changes go through `data/key_reviews/2026-11-05_b-s08_home_oxygen.csv`. The independent key check (Amendment 10) used taxonomy 2.5 and is not rerun: neither key is among its 20 cases, and T-MD05 was never keyed in them. |
 
 **State when recorded.** Development-set (pilot) outputs and the three cases in Amendment 12 had been seen; no evaluation-set run had started.
+
+**Development pilot re-run (Amendment 11), recorded 2026-11-05.** Run once on 2026-11-05 at commit `c2a21a0` with a clean tree: pipeline prompt v6, B2 prompt v7, taxonomy 2.6, all 15 development cases, B1 once and B2 and the pipeline 3 times each. All runs succeeded. Only this file changed between that commit and this record, so the prompts match. These are development outputs and are not results.
 
 ## Appendix: deviations from the original plan
 

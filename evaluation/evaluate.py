@@ -177,7 +177,9 @@ def load_plan(rd: RunDir, case_id: str) -> tuple[DischargePlan, str, list[str], 
     """(plan, status, audit errors, error message, run record, audit trail present).
     A missing plan becomes an empty one."""
     record = read_run(rd.plans, case_id)
-    audit = Path(record["audit_path"]) if record.get("audit_path") else latest_audit(rd.audit, case_id)
+    audit = Path(record["audit_path"]) if record.get("audit_path") else None
+    if audit is None or not audit.exists():  # the recorded path is absolute, so it breaks when a run is moved
+        audit = latest_audit(rd.audit, case_id)
     events = read_audit_log(audit) if audit and audit.exists() else []
     audit_errors = check_audit_trail(events) if events else []
     path = rd.plans / f"{case_id}.json"
