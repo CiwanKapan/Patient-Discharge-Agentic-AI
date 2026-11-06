@@ -1,8 +1,8 @@
 # Pre-registration: analysis plan for the evaluation-set run
 
 **Status:** written 2026-10-29, before any run on the 160 evaluation cases. Success criteria follow the
-methodology document, section 7.6 (its pre-registration section is to be added to the repository so the
-criteria trace back to it). The only model outputs seen so far are
+methodology document, section 7.6 (quoted in `docs/methodology_success_criteria.md`, so the criteria trace back to
+it). The only model outputs seen so far are
 from the 15-case development set (pilot) and one development scenario (live check), neither of which is part
 of the results. Items marked **[OPEN]** or **[CONFIRM]** must be settled, and this file committed, before the
 evaluation-set run starts. Changes after that are recorded as dated amendments below, never edited in place.
@@ -280,7 +280,7 @@ Approved 2026-10-29 by the mentor and the Dataset Lead, before any run on the ev
 only synthetic cases and has no clinical lead; decisions with clinical content were made by the team, with the
 reasoning recorded in the taxonomy's `task_approval_rationale` and amendment notes.)
 
-**Baseline compared against.** The proposal and methodology documents are not in the repository. This appendix
+**Baseline compared against.** The proposal and methodology documents are not in the repository, except for the §7.6 success criteria (`docs/methodology_success_criteria.md`, added 2026-11-05). This appendix
 compares against (a) the project as it stood at commit `63a3cae`, including its README, which stated the plan,
 and (b) the methodology points known here: the §7.6 success criteria and the requirement that answer keys be
 authored independently of the cases with agreement measured.
@@ -322,3 +322,4 @@ authored independently of the cases with agreement measured.
 | 22 | — | All tests two-sided; Wilcoxon signed-rank paired by case on the per-case mean over runs; Holm within a primary family (H1–H3, H4a vs B1 and B2) and a separate secondary family; precision and F1 for H1–H2 secondary | Fix the analysis before seeing results | **9** |
 | 23 | — | A failed or missing run is scored as an empty plan (infrastructure failures re-run first); over-labeling lowers approval precision only | Decide edge cases in advance | **9** |
 | 24 | — | Also reported: run-to-run variability, retries, items dropped, cost per case | Transparency | **9** |
+| 25 | Composite governance score: equal-weight mean of approval accuracy, forbidden-tool refusal, and audit completeness (methodology §7.4) | Secondary H4-composite: all-or-none for each case run (`evaluation/governance.py`) | Not recorded when the composite was first implemented; row 18's "undefined" predates having §7.4 to hand. Listed on 2026-11-05 when §7.4 was added. It is a secondary measure and is not used in any success criterion, so the all-or-none definition is kept | Team decision 2026-11-05 |
