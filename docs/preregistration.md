@@ -272,6 +272,14 @@ Approved on 2026-11-05 by the project team, which also accepted both rows of the
 
 **State when recorded.** Development-set (pilot) outputs and the three cases in Amendment 12 had been seen; no evaluation-set run had started.
 
+### Amendment 14 — 2026-11-05 (recorded during the evaluation-set run)
+
+Approved on 2026-11-05 by the Dataset Lead.
+
+| # | Change |
+|---|---|
+| 14 | **Evaluation run interrupted by a code error:** the run at commit `3b54581` (`runs/main`) stopped at Agentic run 2, CASE-015, after completing B1, B2 runs 1 and 2, Agentic run 1, and 14 cases of Agentic run 2. The model wrote a recommendation with no task ID, and a validation check raised an error on it instead of rejecting it for retry. The check is fixed; prompts, taxonomy, keys, and scoring are unchanged. A case could only reach this error by crashing the run, so the fix cannot change a completed case. Completed runs are kept. The 14 cases of Agentic run 2 are discarded and that whole run is repeated, and Agentic run 3 and B2 run 3 are made, at the fixed commit. Results therefore come from two commits, which the evaluator reports. Scores from the incomplete run were computed in error, labeled invalid, and informed no decision. |
+
 **Development pilot re-run (Amendment 11), recorded 2026-11-05.** Run once on 2026-11-05 at commit `c2a21a0` with a clean tree: pipeline prompt v6, B2 prompt v7, taxonomy 2.6, all 15 development cases, B1 once and B2 and the pipeline 3 times each. All runs succeeded. Only this file changed between that commit and this record, so the prompts match. These are development outputs and are not results.
 
 ## Appendix: deviations from the original plan

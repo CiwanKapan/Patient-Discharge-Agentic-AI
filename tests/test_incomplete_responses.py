@@ -261,3 +261,27 @@ def test_task_for_a_barrier_that_was_not_flagged_fails(taxonomy, tmp_path):
     r = run_case(path, llm, taxonomy=taxonomy, audit_dir=tmp_path)
     assert r.status == "failed"
     assert "which was not flagged" in r.error
+
+
+def _with_missing_id(oracle, kind, field):
+    """The oracle's recommendations plus one that has no task ID or gap field."""
+    recs = oracle._rec_generator()
+    first = recs["recommendations"][0]
+    recs["recommendations"].insert(1, {**first, "kind": kind, "task_id": None, "information_gap_field": None, field: None})
+    _renumber(recs["recommendations"])
+    return recs
+
+
+@pytest.mark.parametrize("kind, field, message", [
+    ("complete_task", "task_id", "was not detected"),
+    ("verify_information", "information_gap_field", "is not a reported information gap"),
+])
+def test_recommendation_missing_its_id_is_retried(taxonomy, tmp_path, kind, field, message):
+    """A missing ID is rejected for retry; it must not crash the run (the 2026-11-05 CASE-015 failure)."""
+    path = GATED_CASES[0]
+    case, key = _load(path)
+    oracle = OracleLLM(case, key, taxonomy)
+    bad = _with_missing_id(oracle, kind, field)
+    r = run_case(path, ScriptedLLM(oracle, {Stage.REC_GENERATOR: [bad]}), taxonomy=taxonomy, audit_dir=tmp_path)
+    assert r.status == "succeeded", r.error
+    assert any("attempt 1 rejected" in w and message in w for w in _warnings(r, Stage.REC_GENERATOR))

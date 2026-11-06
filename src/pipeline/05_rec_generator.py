@@ -118,8 +118,10 @@ def run(
                 recs.append(Recommendation(**d.model_dump(exclude={"proposed_tool_calls"}), proposed_tool_calls=calls))
             except ValueError as e:
                 errors.append(f"{where}: {e}")
-        task_recs = Counter(d.task_id for d in draft.recommendations if d.kind == "complete_task")
-        gap_recs = Counter(d.information_gap_field for d in draft.recommendations if d.kind == "verify_information")
+        # a recommendation missing its ID is already an error above; counting None would break the sorts below
+        task_recs = Counter(d.task_id for d in draft.recommendations if d.kind == "complete_task" and d.task_id)
+        gap_recs = Counter(d.information_gap_field for d in draft.recommendations
+                           if d.kind == "verify_information" and d.information_gap_field)
         errors += [f"task {t} has no recommendation" for t in sorted(set(task_resolves) - set(task_recs))]
         errors += [f"information gap {g} has no recommendation" for g in sorted(gap_fields - set(gap_recs))]
         errors += [f"task {t} has {n} recommendations; write exactly one" for t, n in sorted(task_recs.items()) if n > 1]
